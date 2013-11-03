@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
 
   def proficiency_for(skill)
     # p self.appointments#[0].proficiency
-    p self.skills.find_by_name("Beard Growing")#[0].proficiency
-    p self.skills
-    p self.appointments
+    # p self.skills.find_by_name("Beard Growing")#[0].proficiency
+    # p self.skills
+    p self.appointments#.find_by_skill_id(19)
+    p self.appointments.find_by_skill_id(19)
     # p Skill.all
     # p Skill.find_by_name("Beard Growing")
   end
