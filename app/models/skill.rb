@@ -7,4 +7,5 @@ class Skill < ActiveRecord::Base
   def user_with_proficiency(proficiency)
     
   end
+  
 end
