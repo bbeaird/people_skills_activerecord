@@ -4,25 +4,17 @@ class User < ActiveRecord::Base
   has_many :skills, :through => :appointments
 
   def proficiency_for(skill)
-    # p self.appointments#[0].proficiency
-    # p self.skills.find_by_name("Beard Growing")#[0].proficiency
-    # p self.skills
-    # p user = self
-    # self.skill
-
-    # if self.appointments[0].proficiency.nil?
-    #   self.appointments[0].proficiency = 0
-    # end
-
-    # p self.appointments.find_by_skill_id(19)
-    # p Skill.all
-    # p Skill.find_by_name("Beard Growing")
-    p self.appointments
-    p skill_id = self.skills.find_by_name(skill.name).id#.find_by_name(skill)
-    p self.appointments.find_by_skill_id(skill_id).proficiency
+    # self.appointments
+    skill_id = self.skills.find_by_name(skill.name).id
+    self.appointments.find_by_skill_id(skill_id).proficiency
   end
 
   def set_proficiency_for(skill, proficiency)
+    p skill_id = self.skills.find_by_name(skill.name).id
+    p self.appointments.find_by_skill_id(skill_id).proficiency = proficiency
     # p self.appointments.find_by_skill(skill)
+    p Skill.find_by_name("Beard Growing")#.user_with_proficiency(900)
+    Appointment.all
+
   end
 end
