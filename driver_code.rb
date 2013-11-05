@@ -6,6 +6,7 @@ def clean_up_data
   # Clean up data between tests to prevent cross talk
   User.destroy_all
   Skill.destroy_all
+  Appointment.destroy_all
 end
 
 def assert(boolean, message)
@@ -46,6 +47,7 @@ assert(jesse.proficiency_for(beard_growing) == 0, " Jesse cannot grow a beard :(
 
 ### This confirms that a person can be given a proficiency for a skill
 zee.set_proficiency_for(beard_growing, 900)
+# p 'z'*80
 beard_skills = Skill.find_by_name("Beard Growing").user_with_proficiency(900) == zee
 assert(beard_skills, "! Zee is a Beard Growing MASTER")
 
